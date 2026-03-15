@@ -33,7 +33,6 @@ namespace QlSinhvien
         /// </summary>
         private void InitializeComponent()
         {
-            this.Load += ClassForm_Load;
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -85,14 +84,9 @@ namespace QlSinhvien
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(838, 621);
             this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.AutoGenerateColumns = false;
-            //this.dataGridView1.Columns["id"].DataPropertyName = "id";
-            //this.dataGridView1.Columns["name"].DataPropertyName = "name";
-            //this.dataGridView1.Columns["svCount"].DataPropertyName = "count";
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-
-
-            //// id
+            // id
             // 
             this.id.HeaderText = "Id";
             this.id.MinimumWidth = 6;
@@ -118,6 +112,7 @@ namespace QlSinhvien
             this.button1.TabIndex = 3;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -135,8 +130,9 @@ namespace QlSinhvien
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 52);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Sửa";
+            this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -144,8 +140,9 @@ namespace QlSinhvien
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 63);
             this.button3.TabIndex = 6;
-            this.button3.Text = "Xóa";
+            this.button3.Text = "Sửa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -155,6 +152,7 @@ namespace QlSinhvien
             this.button4.TabIndex = 7;
             this.button4.Text = "Làm mới";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox1
             // 
@@ -199,19 +197,10 @@ namespace QlSinhvien
             this.Name = "ClassForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClassForm";
+            this.Load += new System.EventHandler(this.ClassForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            //render table
-            //DatabaseDataContext db = new DatabaseDataContext();
-            //var classes = db.Classes.Select(c => new
-            //{
-            //    id = c.id,
-            //    name = c.name,
-            //    count = db.Students.Count(s => s.classId == c.id)
-            //}).ToList();
-            //dataGridView1.DataSource = classes;
 
         }
         private void ClassForm_Load(object sender, EventArgs e)

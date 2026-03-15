@@ -107,9 +107,12 @@ namespace QlSinhvien
 		private string _name;
 		
 		private EntitySet<Student> _Students;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
+        public Class()
+        {
+            this._Students = new EntitySet<Student>();
+        }
+        #region Extensibility Method Definitions
+        partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnidChanging(int value);
@@ -121,6 +124,7 @@ namespace QlSinhvien
 
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		
 		public int id
 		{
 			get

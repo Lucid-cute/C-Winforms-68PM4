@@ -32,8 +32,8 @@ namespace QlSinhvien
             if (account != null) {
                 MessageBox.Show("Đăng nhập thành công");
                 ClassForm classForm = new ClassForm();
-                classForm.Show();
-                this.Hide();
+                classForm.ShowDialog();
+                this.Close();
             }
             else
             {
