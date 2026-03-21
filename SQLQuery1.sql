@@ -37,4 +37,4 @@ insert into Student values
 (2,'007','G','g@gmail.com'),
 (2,'008','H','h@gmail.com')
 
-
+select * from Class

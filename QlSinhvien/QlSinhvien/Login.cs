@@ -31,9 +31,11 @@ namespace QlSinhvien
                 acc => acc.email == email && acc.password == pass);
             if (account != null) {
                 MessageBox.Show("Đăng nhập thành công");
+                this.Hide();
                 ClassForm classForm = new ClassForm();
                 classForm.ShowDialog();
                 this.Close();
+
             }
             else
             {

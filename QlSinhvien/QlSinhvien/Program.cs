@@ -16,7 +16,7 @@ namespace QlSinhvien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClassForm());
+            Application.Run(new Login());
         }
     }
 }

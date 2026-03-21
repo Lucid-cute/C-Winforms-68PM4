@@ -47,6 +47,8 @@ namespace QlSinhvien
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.qlsv = new System.Windows.Forms.Button();
+            this.qlclass = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,11 +180,33 @@ namespace QlSinhvien
             this.textBox3.Size = new System.Drawing.Size(224, 30);
             this.textBox3.TabIndex = 10;
             // 
+            // qlsv
+            // 
+            this.qlsv.Location = new System.Drawing.Point(158, -2);
+            this.qlsv.Name = "qlsv";
+            this.qlsv.Size = new System.Drawing.Size(165, 30);
+            this.qlsv.TabIndex = 29;
+            this.qlsv.Text = "Quản lý sinh viên";
+            this.qlsv.UseVisualStyleBackColor = true;
+            this.qlsv.Click += new System.EventHandler(this.qlsv_Click);
+            // 
+            // qlclass
+            // 
+            this.qlclass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.qlclass.Location = new System.Drawing.Point(-3, -2);
+            this.qlclass.Name = "qlclass";
+            this.qlclass.Size = new System.Drawing.Size(165, 30);
+            this.qlclass.TabIndex = 28;
+            this.qlclass.Text = "Quản lý lớp";
+            this.qlclass.UseVisualStyleBackColor = true;
+            // 
             // ClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.qlsv);
+            this.Controls.Add(this.qlclass);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -222,6 +246,9 @@ namespace QlSinhvien
             Console.WriteLine("helo");
             Console.WriteLine(classes);
             dataGridView1.DataSource = classes;
+
+            qlclass.Enabled = false;
+            qlclass.ForeColor = System.Drawing.Color.Red;
         }
 
         #endregion
@@ -240,6 +267,8 @@ namespace QlSinhvien
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button qlsv;
+        private System.Windows.Forms.Button qlclass;
     }
 
     }

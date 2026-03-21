@@ -107,12 +107,9 @@ namespace QlSinhvien
 		private string _name;
 		
 		private EntitySet<Student> _Students;
-        public Class()
-        {
-            this._Students = new EntitySet<Student>();
-        }
-        #region Extensibility Method Definitions
-        partial void OnLoaded();
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnidChanging(int value);
@@ -121,10 +118,13 @@ namespace QlSinhvien
     partial void OnnameChanged();
     #endregion
 		
-
+		public Class()
+		{
+			this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
+			OnCreated();
+		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		
 		public int id
 		{
 			get
@@ -244,7 +244,11 @@ namespace QlSinhvien
     partial void OnemailChanged();
     #endregion
 		
-
+		public Student()
+		{
+			this._Class = default(EntityRef<Class>);
+			OnCreated();
+		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id

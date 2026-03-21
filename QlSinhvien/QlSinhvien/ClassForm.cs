@@ -111,5 +111,15 @@ namespace QlSinhvien
                 MessageBox.Show("Chưa chọn lớp");
             }
         }
+
+        private void qlsv_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StudentForm studentForm = new StudentForm();
+            
+            studentForm.ShowDialog();
+            this.Close();
+            
+        }
     }
 }
